@@ -1,10 +1,4 @@
 sources:
-    - name: NetApp_ORG
-      handler:
-        openapi:
-          source: ../src/utils/org-combined-schema.yml
-          # source: https://10.203.20.1/org-api/org-combined-schema.yml
-          endpoint: https://10.203.20.1/api/v3/
     - name: NetApp_GRID
       handler:
         openapi:

@@ -132,6 +132,7 @@ paths:
       summary: Lists configured external NTP servers
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/get-ntp-servers-response"
         default:
@@ -307,6 +308,7 @@ paths:
         default: 25
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/list-current-alarms-response"
         default:
@@ -333,6 +335,7 @@ paths:
         default: node
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/grid-health-topology-response"
         default:
@@ -347,6 +350,7 @@ paths:
       summary: Retrieves the deactivated features configuration
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/deactivated-features-get-put-response"
         default:
@@ -383,6 +387,7 @@ paths:
       summary: Lists all client certificates configured on the grid
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/list-client-certificates-response"
         default:
@@ -425,6 +430,7 @@ paths:
         type: string
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/client-certificate-get-post-put-response"
         default:
@@ -449,6 +455,7 @@ paths:
           "$ref": "#/definitions/client-certificate"
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/client-certificate-get-post-put-response"
         default:
@@ -483,8 +490,6 @@ paths:
         in: query
         type: array
         default:
-        - active
-        example:
         - active
         items:
           type: string
@@ -526,6 +531,7 @@ paths:
         property will be removed in a future release.
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/grid-health-response"
         default:
@@ -539,6 +545,7 @@ paths:
       summary: Lists configured regions
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/regions-get-response"
         default:
@@ -578,6 +585,7 @@ paths:
       summary: Lists alert rules
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/alert-rules-list-response"
         default:
@@ -620,6 +628,7 @@ paths:
         type: string
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/alert-rule-get-post-put-response"
         default:
@@ -645,6 +654,7 @@ paths:
           "$ref": "#/definitions/alert-rule"
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/alert-rule-get-post-put-response"
         default:
@@ -679,6 +689,7 @@ paths:
       summary: Retrieves the global S3 Object Lock settings
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/compliance-global-get-put-response"
         default:
@@ -878,6 +889,7 @@ paths:
       summary: Gets the SNMP configuration
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/snmp-get-put-snmp-response"
         default:
@@ -914,6 +926,7 @@ paths:
       summary: Lists alert notification receivers
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/list-alert-notification-receivers-response"
         default:
@@ -970,6 +983,7 @@ paths:
         type: string
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/get-post-put-alert-notification-receiver-response"
         default:
@@ -1030,17 +1044,16 @@ paths:
           "$ref": "#/definitions/credentials"
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/authorize-response"
           headers:
             Cache-Control:
               description: Indicates the time in seconds until the token expires
               type: string
-              example: private, no-cache, max-age=57599
             Expires:
               description: Indicates the token expiration time in RFC2616 format
               type: string
-              example: Thu, 19 Nov 2015 08:40:58 GMT
         400:
           description: Single sign-on is enabled and must be used to log in.
           schema:
@@ -1094,6 +1107,8 @@ paths:
             "$ref": "#/definitions/error-response"
   "/saml-response":
     post:
+      consumes:
+        - 'multipart/form-data'
       tags:
       - auth
       summary: SAML identity provider authentication response
@@ -1185,6 +1200,7 @@ paths:
       summary: Retrieves global configuration and token information
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/config-get-response"
         default:
@@ -1198,6 +1214,7 @@ paths:
       summary: Retrieves the global management API and UI configuration
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/config-management-get-put-response"
         default:
@@ -1234,6 +1251,7 @@ paths:
       summary: Retrieves the product release version
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/product-version-get-response"
         default:
@@ -1291,6 +1309,7 @@ paths:
         '
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/api-versions-get-response"
         default:
@@ -1310,7 +1329,6 @@ paths:
         collectionFormat: multi
         items:
           type: string
-          example: Low object data storage
         required: false
       - name: timeTriggeredEarliest
         description: The earliest time a resolved alert was triggered
@@ -1353,6 +1371,7 @@ paths:
         required: false
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/alert-history-list-response"
         default:
@@ -1366,6 +1385,7 @@ paths:
       summary: Gets the untrusted Client Network configuration
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/untrusted-client-network-get-put-response"
         default:
@@ -1681,6 +1701,7 @@ paths:
       summary: Gets the audit configuration
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/audit-get-put-audit-response"
         default:
@@ -1732,6 +1753,7 @@ paths:
       summary: Retrieves the list of grid nodes available for expansion
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/list-nodes-response"
         default:
@@ -1751,6 +1773,7 @@ paths:
         type: string
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/get-node-response"
         default:
@@ -1774,6 +1797,7 @@ paths:
           "$ref": "#/definitions/node"
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/put-node-response"
         422:
@@ -1834,6 +1858,7 @@ paths:
       summary: Retrieves the status of the current expansion procedure
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/get-expansion-status-response"
         default:
@@ -1870,6 +1895,7 @@ paths:
           example: Not used
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/get-expansion-status-response"
         default:
@@ -1903,6 +1929,7 @@ paths:
         is started)
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/list-sites-response"
         default:
@@ -1945,6 +1972,7 @@ paths:
         type: string
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/get-sites-response"
         default:
@@ -1968,6 +1996,7 @@ paths:
           "$ref": "#/definitions/site"
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/post-put-sites-response"
         422:
@@ -2062,6 +2091,7 @@ paths:
       summary: Retrieves the grid license
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/get-license-response"
         default:
@@ -2172,6 +2202,7 @@ paths:
       summary: Lists criteria available for creating an ILM rule
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/ilm-criteria-list-response"
         default:
@@ -2192,6 +2223,7 @@ paths:
         - compliance
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/ilm-rules-list-response"
         default:
@@ -2257,6 +2289,7 @@ paths:
         - compliance
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/ilm-rule-get-response"
         default:
@@ -2303,6 +2336,7 @@ paths:
         - historical
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/ilm-policies-list-response"
         default:
@@ -2362,6 +2396,7 @@ paths:
         type: string
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/ilm-policy-get-response"
         default:
@@ -2403,6 +2438,7 @@ paths:
       summary: Lists alert silences
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/alert-silence-list-response"
         default:
@@ -2445,6 +2481,7 @@ paths:
         type: string
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/alert-silence-get-post-put-response"
         default:
@@ -2548,6 +2585,7 @@ paths:
         - desc
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/list-accounts-response"
         default:
@@ -2593,6 +2631,7 @@ paths:
         default: 25
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/list-accounts-cache-response"
         default:
@@ -2612,6 +2651,7 @@ paths:
         type: string
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/get-put-account-response"
         default:
@@ -2730,6 +2770,7 @@ paths:
         type: boolean
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/account-usage-response"
         404:
@@ -2871,6 +2912,7 @@ paths:
       - application/json
       responses:
         200:
+          description: 'description'
           schema:
             type: file
         422:
@@ -3006,6 +3048,7 @@ paths:
       summary: Lists configured external DNS servers
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/get-dns-servers-response"
         default:
@@ -3078,6 +3121,7 @@ paths:
       summary: Lists Identity Sources
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/identity-source-get-put-response"
         default:
@@ -3104,6 +3148,7 @@ paths:
         type: boolean
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/identity-source-get-put-response"
         204:
@@ -3240,6 +3285,7 @@ paths:
       - application/json
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/node-console-passwords-post-response"
         422:
@@ -3257,6 +3303,7 @@ paths:
       summary: Retrieves the status of the provisioning passphrase change.
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/passphrase-get-response"
         default:
@@ -3293,6 +3340,7 @@ paths:
         are in use
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/traffic-classes-info-response"
         default:
@@ -3306,6 +3354,7 @@ paths:
       summary: Get all traffic class policy names
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/traffic-classes-policy-names-response"
         default:
@@ -3345,6 +3394,7 @@ paths:
         format: uuid
       responses:
         200:
+          description: 'description'
           schema:
             "$ref": "#/definitions/traffic-classes-policy-response"
         default:
@@ -6496,7 +6546,7 @@ definitions:
       stageProgress:
         title: Stage Progress Percentage
         description: the estimated progress percentage within the current stage
-        type: float
+        type: number
         example: 12.3
   hardware:
     title: Hardware Details
